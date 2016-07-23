@@ -30,7 +30,7 @@ photoshopDOM.stopListeningEvent('placedLayerEditContents');
 ```
 
 
-#### Install
+#### Changelog
 --------
 
 **0.0.0 (Jul 23 2016)**
