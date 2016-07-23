@@ -3,18 +3,20 @@
 [![npm-image](https://img.shields.io/badge/npm-v0.0.0-ff69b4.svg)](https://www.npmjs.com/package/photoshop-dom-event)
 ![version-image](https://img.shields.io/badge/license-MIT-ff69b4.svg)
 
-#### Description
------------
-Node.js module for listening to Adobe Photoshop DOM events from a CEP HTML/JavaScript Extension (Custom Panel).
-
-For registering a Photoshop event callback is necessary to specify the charID or stringID that is expected to listen.
-To preserve Photoshop stability, event listeners can be started or stopped during extension execusion by using the corresponding methods described below.
-
 #### Install
 --------
 ```
 npm install photoshop-dom-event --save
 ```
+
+#### Description
+-----------
+Node.js module for listening to Adobe Photoshop DOM events from a CEP HTML/JavaScript Extension (Custom Panel).
+
+For registering a Photoshop event callback is necessary to specify the charID or stringID that is expected to listen.
+
+To mantain Photoshop stability, event listeners can be started or stopped during extension execusion by using the corresponding methods described below.
+
 
 #### Example
 --------
