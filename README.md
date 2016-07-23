@@ -1,5 +1,4 @@
 ## Photoshop-DOM-Event
------------
 
 [![npm-image](https://img.shields.io/badge/npm-v0.0.0-ff69b4.svg)](https://www.npmjs.com/package/photoshop-dom-event)
 ![version-image](https://img.shields.io/badge/license-MIT-ff69b4.svg)
@@ -31,14 +30,13 @@ photoshopDOM.stopListeningEvent('placedLayerEditContents');
 ```
 
 
-#### Changelog
-=========
+#### Install
+--------
 
-##0.0.0 (Jul 23 2016)
------
-*   Initial development.
+**0.0.0 (Jul 23 2016)**
+*    Initial development.
 
-
+--------
 ## License
 MIT © [Antonio Gomez][0]
 
