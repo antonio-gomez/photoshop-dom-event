@@ -1,39 +1,42 @@
 {
-	"name": "photoshop-dom-event"
-	, "version": "0.0.0"
-	, "description": "Node.js module for listening to Adobe Photoshop DOM events from a CEP HTML/JavaScript Extension (Custom Panel)"
-	, "main": "./photoshop-dom-event.js"
-	, "directories": {
-		"example": "example"
-	}
-	, "repository": {
-		"type": "git"
-		, "url": "git+https://github.com/antonio-gomez/photoshop-dom-event.git"
-	}
-	, "keywords": [
-    "photoshop"
-    , "event"
-    , "dom"
-    , "custom"
-    , "panels"
-    , "extensibility"
-    , "CEP"
-  ]
-	, "author": {
-		"name": "Antonio Gomez"
-		, "email": "hello@antoniogomez.me"
-		, "url": "https://github.com/antonio-gomez"
-	}
-	, "contributors": [
-		{
-			"name": "Javier Aroche"
-			, "email": "aroche290@gmail.com"
-			, "url": "https://github.com/JavierAroche"
-    	}
-  	]
-	, "license": "MIT"
-	, "bugs": {
-		"url": "https://github.com/antonio-gomez/photoshop-dom-event/issues"
-	}
-	, "homepage": "https://github.com/antonio-gomez/photoshop-dom-event#readme"
+  "name": "photoshop-dom-event",
+  "version": "0.0.0",
+  "description": "Node.js module for listening to Adobe Photoshop DOM events from a CEP HTML/JavaScript Extension (Custom Panel)",
+  "main": "./photoshop-dom-event.js",
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonio-gomez/photoshop-dom-event.git"
+  },
+  "keywords": [
+    "photoshop",
+    "event",
+    "dom",
+    "custom",
+    "panels",
+    "extensibility",
+    "CEP"
+  ],
+  "author": {
+    "name": "Antonio Gomez",
+    "email": "hello@antoniogomez.me",
+    "url": "https://github.com/antonio-gomez"
+  },
+  "contributors": [
+    {
+      "name": "Javier Aroche",
+      "email": "aroche290@gmail.com",
+      "url": "https://github.com/JavierAroche"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antonio-gomez/photoshop-dom-event/issues"
+  },
+  "homepage": "https://github.com/antonio-gomez/photoshop-dom-event#readme",
+  "dependencies": {
+    "q": "^1.4.1"
+  }
 }

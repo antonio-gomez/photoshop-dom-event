@@ -9,26 +9,34 @@
 npm install photoshop-dom-event --save
 ```
 
+
+#### Requirements
+--------
+[CSInterface][0] v5.x or higher
+
+
 #### Description
 -----------
 Node.js module for listening to Adobe Photoshop DOM events from a CEP HTML/JavaScript Extension (Custom Panel).
 
 For registering a Photoshop event callback is necessary to specify the charID or stringID that is expected to listen.
 
-To mantain Photoshop stability, event listeners can be started or stopped during extension execusion by using the corresponding methods described below.
+Various charIDs that can be used are documented in [Photoshop Javascript reference][1], Appendix A: Event ID Codes or by usign Adobe Photoshop [Scripting Listener Plug-in][2] to identify the corresponding eventID. 
 
+To mantain Photoshop stability, event listeners can be started or stopped during extension execusion by using the corresponding methods described below.
 
 #### Example
 --------
 ```
+var csInterface  = new CSInterface();
 var photoshopDOM = require('photoshop-dom-event');
 
-photoshopDOM.startListeningEvent('placedLayerEditContents');
-
+// Start listening for an event passing the corresponding stringID
 photoshopDOM.onEvent('placedLayerEditContents', function(eventData) {
   console.log('Editing Photoshop Smart Layer', eventData);
 });
 
+// Later in your code
 photoshopDOM.stopListeningEvent('placedLayerEditContents');
 ```
 
@@ -41,6 +49,9 @@ photoshopDOM.stopListeningEvent('placedLayerEditContents');
 
 --------
 ## License
-MIT © [Antonio Gomez][0]
+MIT © [Antonio Gomez][2]
 
-[0]: http://antoniogomez.me/
+[0]: https://github.com/Adobe-CEP/CEP-Resources
+[1]: http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/photoshop/pdfs/photoshop-cc-javascript-ref-2015.pdf
+[2]: http://www.adobe.com/devnet/photoshop/scripting.html
+[3]: http://antoniogomez.me/
