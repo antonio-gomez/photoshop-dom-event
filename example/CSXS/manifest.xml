@@ -13,7 +13,7 @@
 			<Locale Code="All" /> 
 		</LocaleList>
 		<RequiredRuntimeList>
-			<RequiredRuntime Name="CSXS" Version="6.0" />
+			<RequiredRuntime Name="CSXS" Version="5.0" />
 		</RequiredRuntimeList>
 	</ExecutionEnvironment>
 	
