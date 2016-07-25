@@ -21,7 +21,7 @@ Node.js module for listening to Adobe Photoshop DOM events from a CEP HTML/JavaS
 
 For registering a Photoshop event callback is necessary to specify the charID or stringID that is expected to listen.
 
-Various charIDs that can be used are documented in [Photoshop Javascript reference][1], Appendix A: Event ID Codes or by usign Adobe Photoshop [Scripting Listener Plug-in][2] to identify the corresponding eventID. 
+Various charIDs that can be used are documented in [Photoshop Javascript reference][1], **Appendix A: Event ID Codes** or by usign Adobe Photoshop [Scripting Listener Plug-in][2] to identify the corresponding eventID. 
 
 To mantain Photoshop stability, event listeners can be started or stopped during extension execusion by using the corresponding methods described below.
 
@@ -40,12 +40,22 @@ photoshopDOM.onEvent('placedLayerEditContents', function(eventData) {
 photoshopDOM.stopListeningEvent('placedLayerEditContents');
 ```
 
+#### Scope
+--------
+Tested in Adobe Photoshop CC2014 (v15.x), Adobe Photoshop CC2015 (v16.x) and Adobe Photoshop CC2015.5 (v17.x)
+
 
 #### Changelog
 --------
 
-**0.0.0 (Jul 23 2016)**
+**v0.0.0 (Jul 23 2016)**
 *    Initial development.
+
+**v1.0.0 (Jul 24 2016)**
+*    Listening to Photoshop DOM events by passsing the corresponding charID or stringID of the event to register.
+*    Stop listening to events based on the provided charID or stringID.
+*    Handling unique event callbacks for Adobe Photoshop CC2014.
+
 
 --------
 ## License
