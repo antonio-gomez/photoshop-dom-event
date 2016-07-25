@@ -25,13 +25,13 @@ Various charIDs that can be used are documented in [Photoshop Javascript referen
 
 To mantain Photoshop stability, event listeners can be started or stopped during extension execusion by using the corresponding methods described below.
 
-#### Example
+#### Usage
 --------
 ```
 var csInterface  = new CSInterface();
 var photoshopDOM = require('photoshop-dom-event');
 
-// Start listening for an event passing the corresponding stringID
+// Start listening for an event passing the corresponding charID or stringID
 photoshopDOM.onEvent('placedLayerEditContents', function(eventData) {
   console.log('Editing Photoshop Smart Layer', eventData);
 });

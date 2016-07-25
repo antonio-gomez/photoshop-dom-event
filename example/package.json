@@ -1,0 +1,35 @@
+{
+  "name": "photoshop-dom-event-example",
+  "version": "1.0.0",
+  "description": "Basic usage of photoshop-dom-event node.js module",
+  "main": "./js/main.js",
+  "keywords": [
+    "photoshop",
+    "event",
+    "dom",
+    "custom",
+    "panels",
+    "extensibility",
+    "CEP"
+  ],
+  "author": {
+    "name": "Antonio Gomez",
+    "email": "hello@antoniogomez.me",
+    "url": "https://github.com/antonio-gomez"
+  },
+  "contributors": [
+    {
+      "name": "Javier Aroche",
+      "email": "aroche290@gmail.com",
+      "url": "https://github.com/JavierAroche"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antonio-gomez/photoshop-dom-event/issues"
+  },
+  "homepage": "https://github.com/antonio-gomez/photoshop-dom-event#readme",
+  "dependencies": {
+    "photoshop-dom-event": "^1.0.0"
+  }
+}
