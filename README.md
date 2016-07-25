@@ -1,6 +1,6 @@
 ## Photoshop-DOM-Event
 
-[![npm-image](https://img.shields.io/badge/npm-v1.1.0-ff69b4.svg)](https://www.npmjs.com/package/photoshop-dom-event)
+[![npm-image](https://img.shields.io/badge/npm-v1.1.1-ff69b4.svg)](https://www.npmjs.com/package/photoshop-dom-event)
 ![version-image](https://img.shields.io/badge/license-MIT-ff69b4.svg)
 
 
@@ -63,6 +63,9 @@ Tested in Adobe Photoshop CC2014 (v15.x), Adobe Photoshop CC2015 (v16.x) and Ado
 
 #### Changelog
 --------
+
+**v1.1.1 (Jul 24 2016)**
+*    Minor fixes for CC2015.5 compatibility.
 
 **v1.1.0 (Jul 24 2016)**
 *    Including extension example demostrating module basic functionality for registering and unregistering event listeners.

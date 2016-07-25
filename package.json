@@ -1,6 +1,6 @@
 {
   "name": "photoshop-dom-event",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Node.js module for listening to Adobe Photoshop DOM events from a CEP HTML/JavaScript Extension (Custom Panel)",
   "main": "./photoshop-dom-event.js",
   "directories": {
