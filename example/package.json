@@ -30,6 +30,6 @@
   },
   "homepage": "https://github.com/antonio-gomez/photoshop-dom-event#readme",
   "dependencies": {
-    "photoshop-dom-event": "^1.0.0"
+    "photoshop-dom-event": "^1.1.0"
   }
 }

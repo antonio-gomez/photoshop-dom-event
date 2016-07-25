@@ -8,7 +8,7 @@
  *  http://www.davidebarranca.com/2015/09/html-panel-tips-18-photoshop-json-callback/
  *
  *  @link https://github.com/antonio-gomez/photoshop-dom-event
- *  @version v1.0.0
+ *  @version v1.1.0
  *  @license MIT
  *
  */
