@@ -3,6 +3,7 @@
 [![npm-image](https://img.shields.io/badge/npm-v1.0.0-ff69b4.svg)](https://www.npmjs.com/package/photoshop-dom-event)
 ![version-image](https://img.shields.io/badge/license-MIT-ff69b4.svg)
 
+
 #### Install
 --------
 ```
@@ -25,6 +26,7 @@ Various charIDs that can be used are documented in [Photoshop Javascript referen
 
 To mantain Photoshop stability, event listeners can be started or stopped during extension execusion by using the corresponding methods described below.
 
+
 #### Usage
 --------
 ```
@@ -39,6 +41,14 @@ photoshopDOM.onEvent('placedLayerEditContents', function(eventData) {
 // Later in your code
 photoshopDOM.stopListeningEvent('placedLayerEditContents');
 ```
+
+
+#### Example
+--------
+[Example Photoshop extension] demostrating module basic functionality.
+
+The extension listens for the Layer Selection (slct) eventID and logs the eventData retrived to the console, the 'Remove Listener' button fires the method that unregisters the 'slct' event from the extension.
+
 
 #### Scope
 --------
@@ -65,3 +75,4 @@ MIT © [Antonio Gomez][2]
 [1]: http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/photoshop/pdfs/photoshop-cc-javascript-ref-2015.pdf
 [2]: http://www.adobe.com/devnet/photoshop/scripting.html
 [3]: http://antoniogomez.me/
+[4]: https://github.com/antonio-gomez/photoshop-dom-event/tree/master/example
