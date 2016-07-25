@@ -41,10 +41,23 @@
 			this._registredEvents = [];
 			this._hostVersion     = this._getHostVersion();
 			this.globalEventType  = this._hostVersion == 15 ? 'PhotoshopCallback' : 'com.adobe.PhotoshopJSONCallback' + self._extensionId;
+			this._now             = new Date(Date.now());
 			
 			// Global event listener for PhotoshopJSONCallback event
 			this._csInterface.addEventListener(this.globalEventType, function(csEvent) {
-				self._callbackManager(csEvent);
+				var eventFiredDate;
+
+				// Avoid multiple event call stack error on Adobe Photoshop CC2014
+				if(self._hostVersion == 15) {
+					eventFiredDate = new Date(Date.now());
+
+					if(self._now.toString() !== eventFiredDate.toString()) {
+						self._now = eventFiredDate;
+						self._callbackManager(csEvent);
+					}	
+				} else {
+					self._callbackManager(csEvent);
+				}
 			});
 		}
 	};
@@ -65,18 +78,18 @@
 				}
 			})
 			.catch(function(err) {
-				throw new Error(err);
+				throw new Error("Can't register listener for the provided eventID: " + eventID);
 			});
 	};
 	
 	// Public
 	PhotoshopDOMEvent.prototype.stopListeningEvent = function(eventID) {
-		this._eventRegistrator('unregister', eventID, undefined)
-			.then(function(typeID) {
-				// Loop through the _registredEvents array and delete the one with the corresponding typeID
+		return this._eventRegistrator('unregister', eventID, undefined)
+			.then(function(eventID) {
+				return eventID;
 			})
-			.catch(function(err) {
-				throw new Error("Can't unregister listener for the provided eventID.");
+			.catch(function(eventID) {
+				throw new Error("Can't unregister listener for the provided eventID: " + eventID);
 			});
 	};		
 	
@@ -85,20 +98,38 @@
 	PhotoshopDOMEvent.prototype._eventRegistrator = function(status, eventID, callback) {
 		var self = this;
 		var deferred = Q.defer();
-		var type = status = 'register' ? 'com.adobe.PhotoshopRegisterEvent' : 'com.adobe.PhotoshopUnRegisterEvent';
+		var type = status == 'register' ? 'com.adobe.PhotoshopRegisterEvent' : 'com.adobe.PhotoshopUnRegisterEvent';
 		var event = new CSEvent(type, 'APPLICATION');
-				
+		
 		this._getTypeID(eventID)
 			.then(function(typeID) {
-				event.data = typeID;
-				event.extensionId = self._extensionId;
-				self._csInterface.dispatchEvent(event);
-				
-				if(status = 'register') {
-					self._registredEvents.push({ eventID : eventID, typeID : typeID, callback : callback });
+				try {
+					event.data = typeID;
+					event.extensionId = self._extensionId;
+					self._csInterface.dispatchEvent(event);
+				} catch(err) {
+					deferred.reject(eventID);
 				}
-			
-				deferred.resolve(typeID);
+				
+				// Adding current event to the array of registered events
+				if(status == 'register') {
+					self._registredEvents.push({ eventID : eventID, typeID : typeID, callback : callback });
+					deferred.resolve(typeID);
+				} else if(status == 'unregister') {
+					var eventsCount = self._registredEvents.length;
+					
+					for(var unRegistredEvent in self._registredEvents) {
+						if(self._registredEvents[unRegistredEvent].eventID == eventID) {
+							self._registredEvents.splice(unRegistredEvent, 1);
+						}
+					}
+					// Item was removed from the registered events array
+					if(eventsCount !== self._registredEvents.length) {
+						deferred.resolve(eventID);
+					} else {
+						deferred.reject(eventID);
+					}
+				}
 			})
 			.catch(function(err) {
 				deferred.reject(err);
@@ -134,9 +165,15 @@
 	PhotoshopDOMEvent.prototype._getTypeID = function(eventId) {
 		var self = this;
         var deferred = Q.defer();
-        
+		
 		this._csInterface.evalScript('app.charIDToTypeID("' + eventId + '");', function(typeID) {
-			deferred.resolve(typeID);
+			if(typeID.toString() === 'EvalScript error.') {
+				self._csInterface.evalScript('app.stringIDToTypeID("' + eventId + '");', function(typeID) {
+					deferred.resolve(typeID);
+				});
+			} else {
+				deferred.resolve(typeID);
+			}
 		});
 		
         return deferred.promise;		
