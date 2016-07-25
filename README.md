@@ -45,7 +45,7 @@ photoshopDOM.stopListeningEvent('placedLayerEditContents');
 
 #### Example
 --------
-[Example Photoshop extension] demostrating module basic functionality.
+[Example Photoshop extension][4] demostrating module basic functionality.
 
 The extension listens for the Layer Selection (slct) eventID and logs the eventData retrived to the console, the 'Remove Listener' button fires the method that unregisters the 'slct' event from the extension.
 
