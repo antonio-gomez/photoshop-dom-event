@@ -14,7 +14,7 @@
  */
 
 
-;(function() {
+;(function(window) {
 	
 	'use strict';
 	
@@ -33,10 +33,10 @@
 	PhotoshopDOMEvent.prototype._init = function() {
 		var self = this;
 		
-		if(CSInterface === undefined || typeof CSInterface !== 'function') {
+		if(window.CSInterface === undefined || typeof window.CSInterface !== 'function') {
 			throw new Error('Include Adobe CSInterface v5.x library to your Adobe Photoshop extension.');
 		} else {
-			this._csInterface     = new CSInterface();
+			this._csInterface     = new window.CSInterface();
     		this._extensionId     = this._csInterface.getExtensionID();
 			this._registredEvents = [];
 			this._hostVersion     = this._getHostVersion();
@@ -99,7 +99,7 @@
 		var self = this;
 		var deferred = Q.defer();
 		var type = status == 'register' ? 'com.adobe.PhotoshopRegisterEvent' : 'com.adobe.PhotoshopUnRegisterEvent';
-		var event = new CSEvent(type, 'APPLICATION');
+		var event = new window.CSEvent(type, 'APPLICATION');
 		
 		this._getTypeID(eventID)
 			.then(function(typeID) {
@@ -216,4 +216,4 @@
 	
 	module.exports = new PhotoshopDOMEvent;
 	
-})();
+})(window);

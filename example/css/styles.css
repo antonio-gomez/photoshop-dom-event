@@ -24,6 +24,7 @@ h3 {
 
 .button:hover, .button:focus {
 	background-color: #2B2B2B;
+    outline: 0;
 }
 
 .button:active {
